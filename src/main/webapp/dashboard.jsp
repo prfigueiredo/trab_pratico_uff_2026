@@ -1,10 +1,15 @@
 <%@ page import="model.User" %>
+
 <%
-User user = (User) session.getAttribute("user");
-if (user == null) {
-    response.sendRedirect("login.jsp");
-    return;
-}
+    // Recupera o usuário da sessão
+    User user = (User) session.getAttribute("user");
+
+    // Verifica se o usuário está autenticado
+    if (user == null) {
+        // Redireciona para login caso não esteja logado
+        response.sendRedirect("login.jsp");
+        return;
+    }
 %>
 
 <!DOCTYPE html>
@@ -16,7 +21,10 @@ if (user == null) {
 </head>
 
 <body>
+    <!-- Área principal da página -->
     <main class="container">
+
+        <!-- Mensagem personalizada com dados da sessão -->
         <h1>Bem-vindo, <%= user.getName() %></h1>
     </main>
 </body>
