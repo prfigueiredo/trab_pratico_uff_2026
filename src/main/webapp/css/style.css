@@ -24,3 +24,25 @@ h2 {
     text-align: center;
     margin-bottom: 20px;
 }
+
+/* Formulário */
+.form-login {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Inputs */
+.form-login input {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+/* Botão */
+.form-login button {
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
