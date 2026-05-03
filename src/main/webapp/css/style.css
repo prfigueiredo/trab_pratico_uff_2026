@@ -1,0 +1,67 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+/* Container */
+.container {
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 20px;
+    background: white;
+}
+
+/* Título */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Formulário */
+.form-login {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Inputs */
+.form-login input {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+/* Botão */
+.form-login button {
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Mensagem de erro */
+.erro {
+    color: red;
+    margin-top: 10px;
+}
+
+/* Link Criar Conta */
+a {
+    display: block;       
+    width: 60%;
+    margin: 10px auto;    
+    padding: 8px;
+    border: 1px solid #007BFF;
+    border-radius: 10px; 
+    color: #007BFF;
+    text-decoration: none;
+    text-align: center;
+}
