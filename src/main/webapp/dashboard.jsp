@@ -6,11 +6,18 @@ if (user == null) {
     return;
 }
 %>
-<html>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-<h1>Bem-vindo, <%= user.getName() %></h1>
+    <main class="container">
+        <h1>Bem-vindo, <%= user.getName() %></h1>
+    </main>
 </body>
 </html>
