@@ -46,3 +46,22 @@ h2 {
     border: none;
     cursor: pointer;
 }
+
+/* Mensagem de erro */
+.erro {
+    color: red;
+    margin-top: 10px;
+}
+
+/* Link Criar Conta */
+a {
+    display: block;       
+    width: 60%;
+    margin: 10px auto;    
+    padding: 8px;
+    border: 1px solid #007BFF;
+    border-radius: 10px; 
+    color: #007BFF;
+    text-decoration: none;
+    text-align: center;
+}
