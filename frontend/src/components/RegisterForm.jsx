@@ -1,7 +1,19 @@
 function RegisterForm() {
+
+    // Executado quando o formulário é enviado
+    function handleSubmit(event) {
+
+        // Impede o recarregamento da página
+        event.preventDefault();
+
+        // Simula o envio do formulário para testes
+        console.log("Cadastro enviado");
+    }
+
     return (
-        <form className="form-login">
-            {/* Campo de texto para capturar o nome do usuário */}
+        <form className="form-login" onSubmit={handleSubmit}>
+
+            {/* Campo para nome do usuário */}
             <input
                 type="text"
                 name="name"
@@ -9,7 +21,7 @@ function RegisterForm() {
                 required
             />
 
-            {/* Campo de texto para capturar o email do usuário */}
+            {/* Campo para email */}
             <input
                 type="email"
                 name="email"
@@ -17,7 +29,7 @@ function RegisterForm() {
                 required
             />
 
-            {/* Campo de texto para capturar a senha do usuário */}
+            {/* Campo para senha */}
             <input
                 type="password"
                 name="password"
@@ -25,12 +37,13 @@ function RegisterForm() {
                 required
             />
 
+            {/* Botão de envio */}
             <button type="submit">
                 Cadastrar
             </button>
+
         </form>
     );
 }
 
-// Exporta o componente para ser injetado na RegisterPage
 export default RegisterForm;
