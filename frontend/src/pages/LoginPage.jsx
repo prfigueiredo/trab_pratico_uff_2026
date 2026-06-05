@@ -1,25 +1,22 @@
 import LoginForm from "../components/LoginForm";
 
 function LoginPage({ setPage }) {
-  return (
-    <main className="container">
+    return (
+        <main className="container">
 
-      {/* Título da página */}
-      <h2>Login</h2>
+            {/* Título da página */}
+            <h2>Login</h2>
 
-      {/* Formulário de autenticação */}
-      <LoginForm />
+            {/* Formulário de autenticação */}
+            <LoginForm />
 
-      {/* Botão que redireciona para a tela de cadastro */}
-      <button
-        type="button"
-        onClick={() => setPage("register")}
-      >
-        Criar conta
-      </button>
+            {/* Botão que redireciona para a tela de cadastro */}
+            <button type="button" onClick={() => setPage("register")} >
+                Criar conta
+            </button>
 
-    </main>
-  );
+        </main>
+    );
 }
 
 export default LoginPage;
