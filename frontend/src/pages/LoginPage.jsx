@@ -1,18 +1,20 @@
-// Importa o componente do formulário de login
 import LoginForm from "../components/LoginForm";
 
-function LoginPage() {
+function LoginPage({ setPage }) {
     return (
         <main className="container">
             <h2>Login</h2>
 
-            {/* Renderiza o formulário de login com campos e botão de submit */}
+            {/* Formulário de autenticação */}
             <LoginForm />
 
-            <a href="#">Criar conta</a>
+            {/* Navega para a tela de cadastro */}
+            <button type="button" onClick={() => setPage("register")} >
+                Criar conta
+            </button>
+
         </main>
     );
 }
 
-// Exporta o componente para ser utilizado no arquivo de rotas do app
 export default LoginPage;
