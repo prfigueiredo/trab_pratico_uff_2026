@@ -1,13 +1,14 @@
 function LoginForm() {
-  return (
-    <form className="form-login">
-      <input type="email" name="email" placeholder="Email" required />
+    return (
+        <form className="form-login">
+            <input type="email" name="email" placeholder="Email" required />
 
-      <input type="password" name="password" placeholder="Senha" required />
+            <input type="password" name="password" placeholder="Senha" required />
 
-      <button type="submit">Entrar</button>
-    </form>
-  );
+            <button type="submit">Entrar</button>
+        </form>
+    );
 }
 
+// Exporta o componente para ser injetado na LoginPage
 export default LoginForm;
