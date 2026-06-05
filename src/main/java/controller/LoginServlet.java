@@ -18,7 +18,7 @@ public class LoginServlet extends HttpServlet {
             throws IOException {
 
         // Permite requisições vindas do front-end React
-        resp.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");
+        resp.setHeader("Access-Control-Allow-Origin", "*");
 
         // Define quais métodos HTTP podem ser usados
         resp.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
@@ -35,7 +35,7 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
 
         // Configuração de CORS para permitir integração com o React
-        resp.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");
+        resp.setHeader("Access-Control-Allow-Origin", "*");
         resp.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
         resp.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
