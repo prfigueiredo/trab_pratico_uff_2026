@@ -6,19 +6,25 @@ import "./App.css";
 
 function App() {
 
-  // Controla qual página será exibida na aplicação
+  // Armazena qual tela está sendo exibida atualmente
   const [page, setPage] = useState("login");
 
   return (
     <>
-      {/* Exibe a página de login */}
-      {page === "login" && <LoginPage setPage={setPage} />}
+      {/* Tela de Login */}
+      {page === "login" && (
+        <LoginPage setPage={setPage} />
+      )}
 
-      {/* Exibe a página de cadastro */}
-      {page === "register" && <RegisterPage setPage={setPage} />}
+      {/* Tela de Cadastro */}
+      {page === "register" && (
+        <RegisterPage setPage={setPage} />
+      )}
 
-      {/* Exibe a página principal do sistema */}
-      {page === "dashboard" && <DashboardPage setPage={setPage} />}
+      {/* Tela Principal do Sistema */}
+      {page === "dashboard" && (
+        <DashboardPage setPage={setPage} />
+      )}
     </>
   );
 }
