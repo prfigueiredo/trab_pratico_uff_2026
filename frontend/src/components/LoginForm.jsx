@@ -1,42 +1,46 @@
-function LoginForm({ setPage }) {
-
-    // Executado quando o formulário é enviado
+function LoginForm({ setPage, setUser }) {
+    // Executado ao enviar o formulário de login
     async function handleSubmit(event) {
-
-        // Impede o recarregamento da página
+        // Impede o recarregamento padrão da página
         event.preventDefault();
 
-        // Coleta os dados preenchidos no formulário
-        const formData = new FormData(event.target);
+        // Acessa os campos do formulário
+        const form = event.target;
+
+        // Monta os dados no formato esperado pelo Servlet
+        const data = new URLSearchParams();
+        data.append("email", form.email.value);
+        data.append("password", form.password.value);
 
         try {
-
             // Envia as credenciais para o endpoint de login
             const response = await fetch(
                 "http://localhost:8082/trab-pratico-1.0/login",
                 {
                     method: "POST",
-                    body: formData,
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                    },
+                    body: data,
                 }
             );
 
-            // Verifica se a autenticação foi realizada com sucesso
-            if (response.ok) {
+            // Converte a resposta JSON enviada pelo Servlet
+            const result = await response.json();
 
-                alert("Login realizado com sucesso!");
+            // Se o login for válido, salva usuário no state e vai para o dashboard
+            if (response.ok && result.success) {
+                setUser({
+                    name: result.name,
+                    email: result.email,
+                });
 
-                // Navega para o dashboard
                 setPage("dashboard");
-
             } else {
-
-                alert("Email ou senha inválidos.");
-
+                alert(result.message || "Email ou senha inválidos.");
             }
-
         } catch (error) {
-
-            // Exibe erro no console para depuração
+            // Exibe erro no console para auxiliar na depuração
             console.error(error);
 
             alert("Erro de conexão com o servidor.");
@@ -45,28 +49,14 @@ function LoginForm({ setPage }) {
 
     return (
         <form className="form-login" onSubmit={handleSubmit}>
-
             {/* Campo de email */}
-            <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                required
-            />
+            <input type="email" name="email" placeholder="Email" required />
 
             {/* Campo de senha */}
-            <input
-                type="password"
-                name="password"
-                placeholder="Senha"
-                required
-            />
+            <input type="password" name="password" placeholder="Senha" required />
 
-            {/* Botão de autenticação */}
-            <button type="submit">
-                Entrar
-            </button>
-
+            {/* Botão de login */}
+            <button type="submit">Entrar</button>
         </form>
     );
 }
