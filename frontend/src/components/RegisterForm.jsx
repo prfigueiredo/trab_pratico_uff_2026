@@ -1,19 +1,52 @@
 function RegisterForm() {
 
-    // Executado quando o formulário é enviado
-    function handleSubmit(event) {
+    // Executado ao enviar o formulário
+    async function handleSubmit(event) {
 
-        // Impede o recarregamento da página
+        // Impede o comportamento padrão do formulário
         event.preventDefault();
 
-        // Simula o envio do formulário para testes
-        console.log("Cadastro enviado");
+        // Coleta todos os dados preenchidos pelo usuário
+        const formData = new FormData(event.target);
+
+        try {
+
+            // Envia os dados para o Servlet de cadastro
+            const response = await fetch(
+                "http://localhost:8082/trab-pratico-1.0/register",
+                {
+                    method: "POST",
+                    body: formData,
+                }
+            );
+
+            // Verifica se o cadastro foi realizado com sucesso
+            if (response.ok) {
+
+                alert("Cadastro realizado com sucesso!");
+
+                // Limpa os campos do formulário
+                event.target.reset();
+
+            } else {
+
+                alert("Erro ao cadastrar usuário.");
+
+            }
+
+        } catch (error) {
+
+            // Exibe erro no console para depuração
+            console.error(error);
+
+            alert("Erro de conexão com o servidor.");
+        }
     }
 
     return (
         <form className="form-login" onSubmit={handleSubmit}>
 
-            {/* Campo para nome do usuário */}
+            {/* Campo para nome */}
             <input
                 type="text"
                 name="name"
@@ -37,7 +70,7 @@ function RegisterForm() {
                 required
             />
 
-            {/* Botão de envio */}
+            {/* Botão de cadastro */}
             <button type="submit">
                 Cadastrar
             </button>
