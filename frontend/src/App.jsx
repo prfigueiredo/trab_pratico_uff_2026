@@ -5,25 +5,27 @@ import DashboardPage from "./pages/DashboardPage";
 import "./App.css";
 
 function App() {
-
-  // Armazena qual tela está sendo exibida atualmente
+  // Controla qual tela está sendo exibida
   const [page, setPage] = useState("login");
+
+  // Armazena os dados do usuário autenticado
+  const [user, setUser] = useState(null);
 
   return (
     <>
-      {/* Tela de Login */}
+      {/* Tela de login, recebendo setUser para salvar o usuário logado */}
       {page === "login" && (
-        <LoginPage setPage={setPage} />
+        <LoginPage setPage={setPage} setUser={setUser} />
       )}
 
-      {/* Tela de Cadastro */}
+      {/* Tela de cadastro */}
       {page === "register" && (
         <RegisterPage setPage={setPage} />
       )}
 
-      {/* Tela Principal do Sistema */}
+      {/* Dashboard, recebendo os dados do usuário logado */}
       {page === "dashboard" && (
-        <DashboardPage setPage={setPage} />
+        <DashboardPage user={user} />
       )}
     </>
   );

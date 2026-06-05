@@ -67,7 +67,7 @@ public class RegisterServlet extends HttpServlet {
 
             // Retorna erro para o front-end
             resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            resp.getWriter().write("Erro ao cadastrar usuário");
+            resp.getWriter().write("Erro ao cadastrar usuário: " + e.getMessage());
         }
     }
 }

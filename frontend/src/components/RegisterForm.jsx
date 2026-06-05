@@ -1,42 +1,45 @@
-function RegisterForm() {
-
-    // Executado ao enviar o formulário
+function RegisterForm({ setPage }) {
+    // Executado quando o formulário de cadastro é enviado
     async function handleSubmit(event) {
-
-        // Impede o comportamento padrão do formulário
+        // Impede o recarregamento padrão da página
         event.preventDefault();
 
-        // Coleta todos os dados preenchidos pelo usuário
-        const formData = new FormData(event.target);
+        // Acessa diretamente os campos do formulário
+        const form = event.target;
+
+        // Monta os dados no formato esperado pelo Servlet
+        const data = new URLSearchParams();
+        data.append("name", form.name.value);
+        data.append("email", form.email.value);
+        data.append("password", form.password.value);
 
         try {
-
-            // Envia os dados para o Servlet de cadastro
+            // Envia os dados do cadastro para o back-end
             const response = await fetch(
                 "http://localhost:8082/trab-pratico-1.0/register",
                 {
                     method: "POST",
-                    body: formData,
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                    },
+                    body: data,
                 }
             );
 
-            // Verifica se o cadastro foi realizado com sucesso
+            // Caso o cadastro seja concluído com sucesso
             if (response.ok) {
-
                 alert("Cadastro realizado com sucesso!");
 
-                // Limpa os campos do formulário
-                event.target.reset();
+                // Limpa os campos preenchidos
+                form.reset();
 
+                // Redireciona o usuário para a tela de login
+                setPage("login");
             } else {
-
                 alert("Erro ao cadastrar usuário.");
-
             }
-
         } catch (error) {
-
-            // Exibe erro no console para depuração
+            // Exibe detalhes do erro no console
             console.error(error);
 
             alert("Erro de conexão com o servidor.");
@@ -45,36 +48,17 @@ function RegisterForm() {
 
     return (
         <form className="form-login" onSubmit={handleSubmit}>
+            {/* Campo de nome */}
+            <input type="text" name="name" placeholder="Nome" required />
 
-            {/* Campo para nome */}
-            <input
-                type="text"
-                name="name"
-                placeholder="Nome"
-                required
-            />
+            {/* Campo de email */}
+            <input type="email" name="email" placeholder="Email" required />
 
-            {/* Campo para email */}
-            <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                required
-            />
-
-            {/* Campo para senha */}
-            <input
-                type="password"
-                name="password"
-                placeholder="Senha"
-                required
-            />
+            {/* Campo de senha */}
+            <input type="password" name="password" placeholder="Senha" required />
 
             {/* Botão de cadastro */}
-            <button type="submit">
-                Cadastrar
-            </button>
-
+            <button type="submit">Cadastrar</button>
         </form>
     );
 }

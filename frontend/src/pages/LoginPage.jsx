@@ -11,10 +11,7 @@ function LoginPage({ setPage }) {
             <LoginForm setPage={setPage} />
 
             {/* Navega para a tela de cadastro */}
-            <button
-                type="button"
-                onClick={() => setPage("register")}
-            >
+            <button type="button" onClick={() => setPage("register")} >
                 Criar conta
             </button>
 
