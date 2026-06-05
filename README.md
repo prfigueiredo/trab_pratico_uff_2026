@@ -1,6 +1,22 @@
-# Trabalho Prático 1
+# Trabalho Prático 2
 
-Aplicação web Java MVC com autenticação de usuários (cadastro e login), utilizando Servlets, JSP, MySQL e Apache Tomcat.
+Aplicação web Java MVC com autenticação de usuários (cadastro e login), utilizando React, Java Servlets, MySQL e Apache Tomcat.
+
+## Arquitetura
+
+O projeto foi refatorado para uma arquitetura desacoplada:
+
+React (Front-end)
+        ↓
+    Fetch API
+        ↓
+Java Servlets (Back-end)
+        ↓
+      JDBC
+        ↓
+      MySQL
+
+O front-end é responsável pela interface e interação com o usuário, enquanto o back-end atua como uma API para autenticação e persistência de dados.
 
 \---
 
@@ -13,6 +29,7 @@ Antes de começar, instale:
 * [Apache Tomcat 10+](https://tomcat.apache.org/download-10.cgi)
 * [MySQL Community Server 8.0+](https://dev.mysql.com/downloads/installer/)
 * [Eclipse IDE](https://www.eclipse.org/downloads/) (opcional, mas recomendado)
+* [Node.js LTS](https://nodejs.org/en/download) (inclui npm)
 
 \---
 
@@ -43,7 +60,7 @@ CREATE TABLE users (
 
 \---
 
-## 2\. Build do Projeto
+## 2\. Executando o Back-end
 
 Clone o repositório e entre na pasta:
 
@@ -59,10 +76,6 @@ mvn clean install
 ```
 
 O arquivo será gerado em `target/trab-pratico-1.0.war`.
-
-\---
-
-## 3\. Deploy no Tomcat
 
 Copie o `.war` para a pasta `webapps` do Tomcat:
 
@@ -80,13 +93,41 @@ Inicie o Tomcat:
 C:\\caminho\\do\\tomcat\\bin\\startup.bat
 ```
 
+O back-end ficará disponível em (verificar porta):
+
+```http://localhost:8082/trab-pratico-1.0```
+
 \---
+
+## 3\. Executando o Front-end
+
+Entre na pasta do React:
+
+```bash
+cd frontend
+```
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Inicie o servidor de desenvolvimento:
+
+```bash
+npm run dev
+```
+
+O React ficará disponível em:
+
+```http://localhost:5173``` ou ```http://localhost:5174``` dependendo da porta disponível.
 
 ## 4\. Acesso
 
-Com o Tomcat rodando, acesse no navegador:
+Durante o desenvolvimento é necessário manter dois servidores executando simultaneamente:
 
-
-
-http://localhost:8080/trab-pratico-1.0/dashboard.jsp
-
+* Tomcat (Back-end Java)
+    ```http://localhost:8082/trab-pratico-1.0```
+* Vite (Front-end React)
+    ```http://localhost:5173``` ou ```http://localhost:5174```
