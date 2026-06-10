@@ -66,7 +66,7 @@ Clone o repositório e entre na pasta:
 
 ```bash
 git clone <url-do-repositorio>
-cd trab-pratico_uff_2026
+cd trab-pratico
 ```
 
 Gere o arquivo `.war` com Maven:
@@ -131,48 +131,3 @@ Durante o desenvolvimento é necessário manter dois servidores executando simul
     ```http://localhost:8082/trab-pratico-1.0```
 * Vite (Front-end React)
     ```http://localhost:5173``` ou ```http://localhost:5174```
-
-## 5\. Testes da API
-
-Os testes da API foram realizados utilizando o Bruno.
-
-A collection está disponível na pasta:
-
-```txt
-bruno/
-```
-
-Endpoints testados:
-
-* POST /register
-* POST /login
-
-## Estrutura do Projeto
-
-```txt
-trab_pratico_uff_2026
-│
-├── frontend
-│   ├── src
-│   │   ├── components
-│   │   └── pages
-│
-├── bruno
-│
-├── src
-│   └── main
-│       └── java
-│
-└── pom.xml
-```
-
-## Funcionalidades
-
-* Cadastro de usuários
-* Login de usuários
-* Dashboard com exibição do usuário autenticado
-* Comunicação assíncrona utilizando Fetch API
-* Componentização com React
-* Navegação entre telas utilizando State
-* Integração entre React e Java Servlets
-* Persistência de dados em MySQL
