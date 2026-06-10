@@ -51,4 +51,30 @@ public class UserDAO {
             stmt.executeUpdate();
         }
     }
+
+    public java.util.List<User> findAll() throws Exception {
+
+        java.util.List<User> users = new java.util.ArrayList<>();
+
+        String sql = "SELECT * FROM users";
+
+        try (Connection conn = DBConnection.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+
+                User user = new User();
+
+                user.setId(rs.getInt("id"));
+                user.setName(rs.getString("name"));
+                user.setEmail(rs.getString("email"));
+                user.setPassword(rs.getString("password"));
+
+                users.add(user);
+            }
+        }
+
+        return users;
+    }
 }
