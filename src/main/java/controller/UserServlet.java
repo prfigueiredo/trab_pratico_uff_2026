@@ -90,4 +90,39 @@ public class UserServlet extends HttpServlet {
                     "{\"success\":false,\"message\":\"Erro ao atualizar usuário\"}");
         }
     }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+
+        resp.setContentType("application/json");
+        resp.setCharacterEncoding("UTF-8");
+
+        resp.setHeader("Access-Control-Allow-Origin", "*");
+        resp.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+        resp.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+        try {
+
+            int id = Integer.parseInt(req.getParameter("id"));
+
+            UserDAO dao = new UserDAO();
+
+            dao.delete(id);
+
+            resp.setStatus(HttpServletResponse.SC_OK);
+
+            resp.getWriter().write(
+                    "{\"success\":true,\"message\":\"Usuário removido com sucesso\"}");
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+            resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+
+            resp.getWriter().write(
+                    "{\"success\":false,\"message\":\"Erro ao remover usuário\"}");
+        }
+    }
 }
