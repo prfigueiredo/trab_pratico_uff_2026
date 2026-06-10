@@ -1,0 +1,19 @@
+info:
+  name: Remover usuário
+  type: http
+  seq: 5
+
+http:
+  method: DELETE
+  url: http://localhost:8082/trab-pratico-1.0/users?id=3
+  params:
+    - name: id
+      value: "3"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
