@@ -1,0 +1,24 @@
+info:
+  name: Cadastrar usuário
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://localhost:8082/trab-pratico-1.0/register
+  body:
+    type: form-urlencoded
+    data:
+      - name: name
+        value: bruno 3
+      - name: email
+        value: teste.bruno3@email.com
+      - name: password
+        value: "123"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
