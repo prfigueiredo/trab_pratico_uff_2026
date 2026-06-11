@@ -123,14 +123,13 @@ O React ficará disponível em:
 
 ```http://localhost:5173``` ou ```http://localhost:5174``` dependendo da porta disponível.
 
-## 4\. Acesso
+## 4\. Aplicação Publicada
 
-Durante o desenvolvimento é necessário manter dois servidores executando simultaneamente:
+O front-end foi publicado no GitHub Pages:
 
-* Tomcat (Back-end Java)
-    ```http://localhost:8082/trab-pratico-1.0```
-* Vite (Front-end React)
-    ```http://localhost:5173``` ou ```http://localhost:5174```
+```https://prfigueiredo.github.io/trab_pratico_uff_2026/```
+
+Para utilizar as funcionalidades da aplicação é necessário manter o back-end Java em execução localmente.
 
 ## 5\. Testes da API
 
@@ -146,6 +145,9 @@ Endpoints testados:
 
 * POST /register
 * POST /login
+* GET /users
+* PUT /users
+* DELETE /users
 
 ## Estrutura do Projeto
 
@@ -176,3 +178,5 @@ trab_pratico_uff_2026
 * Navegação entre telas utilizando State
 * Integração entre React e Java Servlets
 * Persistência de dados em MySQL
+* API com operações GET, POST, PUT e DELETE
+* Testes da API utilizando Bruno
