@@ -1,7 +1,17 @@
-// Função para dar "bem vindo" com o nome do usuário
-function UserInfo({ name }) {
+// Função para dar "bem-vindo" com o nome do usuário
+function UserInfo({ name, logout }) {
     return (
-        <h1>Bem-vindo,<br />{name}</h1>
+        <div>
+            <h1>
+                Bem-vindo,
+                <br />
+                {name}
+            </h1>
+
+            <button onClick={logout}>
+                Sair
+            </button>
+        </div>
     );
 }
 

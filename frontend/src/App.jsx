@@ -11,6 +11,12 @@ function App() {
   // Armazena os dados do usuário autenticado
   const [user, setUser] = useState(null);
 
+  // Função para encerrar a sessão do usuário
+  function logout() {
+    setUser(null);
+    setPage("login");
+  }
+
   return (
     <>
       {/* Tela de login, recebendo setUser para salvar o usuário logado */}
@@ -25,7 +31,7 @@ function App() {
 
       {/* Dashboard, recebendo os dados do usuário logado */}
       {page === "dashboard" && (
-        <DashboardPage user={user} />
+        <DashboardPage user={user} logout={logout} />
       )}
     </>
   );
