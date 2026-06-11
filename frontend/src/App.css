@@ -1,3 +1,4 @@
+/* Configurações gerais da página */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -5,6 +6,7 @@ body {
   background: #f4f6f9;
 }
 
+/* Caixa principal do formulário */
 .container {
   max-width: 380px;
   margin: 80px auto;
@@ -15,18 +17,21 @@ body {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
+/* Título das páginas */
 h2 {
   margin-bottom: 28px;
   color: #222;
   font-size: 1.8rem;
 }
 
+/* Organização dos elementos do formulário */
 .form-login {
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
+/* Campos de entrada */
 input {
   padding: 12px 14px;
   font-size: 1rem;
@@ -35,10 +40,12 @@ input {
   outline: none;
 }
 
+/* Destaque ao selecionar um campo */
 input:focus {
   border-color: #0066cc;
 }
 
+/* Botões principais */
 button {
   padding: 11px 16px;
   font-size: 1rem;
@@ -49,11 +56,12 @@ button {
   cursor: pointer;
 }
 
+/* Efeito ao passar o mouse nos botões */
 button:hover {
   background: #0052a3;
 }
 
-/* Botão secundário: Criar conta / Fazer login */
+/* Botão secundário (Criar conta / Fazer login) */
 .container > button {
   margin-top: 14px;
   background: transparent;
@@ -61,7 +69,16 @@ button:hover {
   border: 1px solid #0066cc;
 }
 
+/* Efeito do botão secundário */
 .container > button:hover {
   background: #0066cc;
   color: #fff;
+}
+
+/* Título da página de boas-vindas */
+h1 {
+  font-size: 2.5rem;
+  color: #222;
+  margin: 0;
+  line-height: 1.2;
 }
